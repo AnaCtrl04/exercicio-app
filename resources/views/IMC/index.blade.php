@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Calcular IMC</title>
-    <!-- bootstrap-->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -18,6 +18,14 @@
                     <div class="card-body">
                         <form action="/IMC" method="post">
                             @csrf
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" name="nome" required placeholder="Digite seu nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="data_vencimento" class="form-label">Data de Vencimento</label>
+                                <input type="date" class="form-control" name="data_vencimento" required>
+                            </div>
                             <div class="mb-3">
                                 <label for="peso" class="form-label">Peso (kg)</label>
                                 <input type="number" class="form-control" name="peso" step="0.1" required placeholder="Digite seu peso em kg">
