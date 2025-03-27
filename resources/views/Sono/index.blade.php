@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Avaliar Sono</title>
-    <!-- bootstrap-->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -19,6 +19,14 @@
                         <form action="/Sono" method="post">
                             @csrf
                             <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" name="nome" required placeholder="Digite seu nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="data_vencimento" class="form-label">Data de Nascimento</label>
+                                <input type="date" class="form-control" name="data_nascimento" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="horas" class="form-label">Quantas horas você dormiu?</label>
                                 <input type="number" class="form-control" name="horas" required min="0" step="0.1" placeholder="Digite o número de horas">
                             </div>
@@ -29,7 +37,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

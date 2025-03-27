@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImcRecord;
 use Illuminate\Http\Request;
 
 class IMCController extends Controller
@@ -13,12 +14,27 @@ class IMCController extends Controller
 
     public function calcularIMC(Request $request)
     {
+        // Pegando os dados do formulário
+        $nome = $request->nome;
+        $data_vencimento = $request->data_vencimento;
         $altura = $request->altura;
         $peso = $request->peso;
 
+        // Calculando o IMC
         $imc = $peso / ($altura * $altura);
         $resultado = $this->classificarIMC($imc);
 
+        // Salvando os dados no banco
+        $imcRecord = ImcRecord::create([
+            'nome' => $nome,
+            'data_vencimento' => $data_vencimento,
+            'peso' => $peso,
+            'altura' => $altura,
+            'imc' => $imc,
+            'classificacao' => $resultado
+        ]);
+
+        // Retornando o resultado
         return view('imc.resultado', compact('imc', 'resultado'));
     }
 

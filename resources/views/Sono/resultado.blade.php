@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Resultado da Avaliação do Sono</title>
-    <!-- bootstrap-->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">

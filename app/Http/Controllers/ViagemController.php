@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ViagemRecord;
 use Illuminate\Http\Request;
 
 class ViagemController extends Controller
@@ -12,13 +13,20 @@ class ViagemController extends Controller
     }
 
     public function calcularViagem(Request $request)
-    {
-        $distancia = $request->distancia;
-        $consumo = $request->consumo;
-        $precoCombustivel = $request->preco;
+{
+    $distancia = $request->distancia;
+    $consumo = $request->consumo;
+    $precoCombustivel = $request->preco;
 
-        $custoViagem = ($distancia / $consumo) * $precoCombustivel;
+    $custoViagem = ($distancia / $consumo) * $precoCombustivel;
 
-        return view('viagem.resultado', compact('custoViagem'));
-    }
+    // Salvar no banco
+    ViagemRecord::create([
+        'distancia' => $distancia,
+        'consumo' => $consumo,
+        'preco_combustivel' => $precoCombustivel
+    ]);
+
+    return view('viagem.resultado', compact('custoViagem'));
+}
 }
